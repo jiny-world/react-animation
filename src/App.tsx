@@ -81,22 +81,19 @@ const Overlay = styled(motion.div)`
 const Button = styled(motion.button)`
   background-color: white;
   border: 0px;
+  border-radius: 5px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
   margin: 50px;
+  font-size: 15px;
+  cursor: pointer;
 `;
 
 const boxVariants = {
-  hover: (isLeft: boolean) => ({
-    transformOrigin: isLeft ? "bottom right" : "top left",
+  hover: {
     scale: 1.1,
-  }),
-
-  entry: (isBack: boolean) => ({
-    x: isBack ? -500 : 500,
-    opacity: 0,
-    scale: 0,
-  }),
+  },
 };
+
 function App() {
   const [id, setId] = useState<null | string>(null);
   const [isCircleClicked, setIsCircleClicked] = useState(false);
@@ -117,22 +114,24 @@ function App() {
         <AnimatePresence>
           <Grid>
             <Box
+              style={{ originX: 1, originY: 1 }}
               variants={boxVariants}
               layoutId={"1"}
               onClick={() => boxCilcked("1")}
-              custom={true}
               whileHover="hover"
             ></Box>
+
             <Box>{!isCircleClicked ? null : <Circle layoutId="circle" />}</Box>
             <Box>{isCircleClicked ? null : <Circle layoutId="circle" />}</Box>
             <Box
+              style={{ originX: 0, originY: 0 }}
               variants={boxVariants}
               layoutId={"4"}
               onClick={() => boxCilcked("4")}
-              custom={false}
               whileHover="hover"
             ></Box>
           </Grid>
+
           {id !== null ? (
             <Overlay
               onClick={closeLayout}
@@ -148,7 +147,9 @@ function App() {
         <Button
           onClick={switchCircle}
           style={
-            isCircleClicked ? { color: "blue", scale: 1.2 } : { color: "red" }
+            isCircleClicked
+              ? { color: "#0984e3", scale: 1.3 }
+              : { color: "#e17055" }
           }
         >
           Switch
