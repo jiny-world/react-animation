@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/jiny-world/react-animation/static/js/main.4adfb538.js",
-    "index.html": "/jiny-world/react-animation/index.html",
-    "main.4adfb538.js.map": "/jiny-world/react-animation/static/js/main.4adfb538.js.map"
+    "main.js": "/react-animation/static/js/main.aca605f6.js",
+    "index.html": "/react-animation/index.html",
+    "main.aca605f6.js.map": "/react-animation/static/js/main.aca605f6.js.map"
   },
   "entrypoints": [
-    "static/js/main.4adfb538.js"
+    "static/js/main.aca605f6.js"
   ]
 }
